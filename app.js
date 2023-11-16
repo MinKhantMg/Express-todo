@@ -11,6 +11,7 @@ const { db } = require('./config/database');
 // import register
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+let todosRouter = require('./routes/todos');
 
 var app = express();
 
@@ -32,6 +33,7 @@ mongoose.connect(db)
 // Router register
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/todos', todosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
